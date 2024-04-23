@@ -141,5 +141,21 @@ def do_overlap(from1: datetime, to1: datetime, from2: datetime, to2: datetime) -
     return from1 < to2 and from2 < to1
 
 
-def iso2dtime(isodatetime: str) -> datetime :
+def iso2dtime(isodatetime: str) -> datetime:
     return datetime.fromisoformat(isodatetime)
+
+
+def time_range(trange: str) -> tuple[datetime, datetime]:
+    """
+    2024-01-01T08:00T16:00 -> 2024-01-01T08:00, 2024-01-01T16:00
+    """
+    dat, tfrom, tto = trange.split("T")
+    datefrom = date.fromisoformat(dat)
+    dateto = date.fromisoformat(dat)
+    timefrom = time.fromisoformat(tfrom)
+    timeto = time.fromisoformat(tto)
+    if timefrom > timeto:
+        dateto += timedelta(days=1)
+    dfrom = datetime.combine(datefrom, timefrom)
+    dto = datetime.combine(dateto, timeto)
+    return dfrom, dto

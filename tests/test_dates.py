@@ -11,7 +11,8 @@ from grutil.dates import (
     round_half,
     daynight_hours,
     do_overlap,
-    iso2dtime
+    iso2dtime,
+    time_range
 )
 
 
@@ -73,3 +74,15 @@ def test_do_overlap():
 def test_iso2dtime():
     assert iso2dtime("2020-01-01T10:30:00") == datetime(2020, 1, 1, 10, 30, 0)
     assert iso2dtime("2020-01-01T10:30") == datetime(2020, 1, 1, 10, 30)
+
+
+def test_time_range():
+    assert time_range("2024-01-01T08:00T16:00") == (
+        datetime(2024, 1, 1, 8, 0), datetime(2024, 1, 1, 16, 0)
+    )
+    assert time_range("2024-01-01T22:00T06:00") == (
+        datetime(2024, 1, 1, 22, 0), datetime(2024, 1, 2, 6, 0)
+    )
+    assert time_range("2024-12-31T22:00T06:00") == (
+        datetime(2024, 12, 31, 22, 0), datetime(2025, 1, 1, 6, 0)
+    )
