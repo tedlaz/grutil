@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "grutil"
-version = "0.1.5"
+version = "0.1.7"
 description = ""
 authors = ["Ted Lazaros <tedlaz@gmail.com>"]
 readme = "README.md"

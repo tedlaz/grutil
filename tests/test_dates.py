@@ -72,3 +72,4 @@ def test_do_overlap():
 
 def test_iso2dtime():
     assert iso2dtime("2020-01-01T10:30:00") == datetime(2020, 1, 1, 10, 30, 0)
+    assert iso2dtime("2020-01-01T10:30") == datetime(2020, 1, 1, 10, 30)

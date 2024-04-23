@@ -63,7 +63,7 @@ def delta_hours(dfrom: datetime, dto: datetime) -> float:
 
 
 def round_half(hours: float) -> float:
-    """Ωρες στρογγυλεμένες ανα μισάωρο"""
+    """Hours rounded to nearest half hour"""
     return round(hours * 2) / 2
 
 
@@ -91,7 +91,7 @@ def daynight_hours(dfrom: datetime, dto: datetime) -> dict[str, float]:
     #  -----|---------------|--+-----|----------------|--
     # 1  *-*|               |        |
     # 2  *--|----------*    |        |
-    #    *--|---------------|-*      |    Αδύνατο
+    #    *--|---------------|-*      |    impossible
     # 3     |  *--------*   |        |
     # 4     |            *--|------* |
     # 5     |             *-|--------|--*
