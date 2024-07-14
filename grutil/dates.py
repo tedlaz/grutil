@@ -18,7 +18,7 @@ def isodate2gr(iso_date: str) -> str:
     strdate = str(iso_date)
     try:
         year, month, day = strdate.split("-")
-        return "%s/%s/%s" % (day, month, year)
+        return f"{day}/{month}/{year}"
     except ValueError:
         return "01/01/1000"
 
@@ -43,7 +43,7 @@ def grdate2isodate(grdate: str) -> str:
         return "1000-01-01"
     day = day if len(day) == 2 else "0" + day
     month = month if len(month) == 2 else "0" + month
-    return "%s-%s-%s" % (year, month, day)
+    return f"{year}-{month}-{day}"
 
 
 def grdate2date(grdate: str) -> date:
